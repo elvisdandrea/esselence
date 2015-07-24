@@ -1,0 +1,4 @@
+{
+    "vista"      : "Plugins/Vista/Vista",
+    "restclient" : "Plugins/RestClient/RestClient"
+}
