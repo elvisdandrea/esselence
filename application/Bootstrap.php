@@ -7,6 +7,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
     const GraviDir = '../library/Gravi';
 
+    protected function _initLayout(){
+        $layout = Zend_Layout::startMvc();
+        $layout->setLayoutPath(APPLICATION_PATH. '/views/layouts');
+    }
+
     /**
      * Initializes the dependency injector
      */
