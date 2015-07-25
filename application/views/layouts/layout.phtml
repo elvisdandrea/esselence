@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-BR">
+    <title>Esselence Imóveis | Tramandaí, RS</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Esselence Imóveis em Tramandaí - RS, Imóveis em Tramandaí, Imóveis no litoral Norte do RS, Venda de imóveis, Apartamentos, Casas, Terrenos, Lançamentos">
+    <meta name="revisit-after" content="1" />
+    <meta name="language" content="pt-br" />
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="res/css/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=712673535512368";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<?php echo $this->render('index/header.phtml'); ?>
+<!-- HEADER -->
+
+<section class="body-site">
+    <?php echo $this->layout()->content;?>
+</section>
+
+<!-- FOOTER -->
+<?php echo $this->render('index/footer.phtml'); ?>
+<!-- /FOOTER -->
+
+</body>
+<script src="res/js/main.min.js"></script>
+</html>
