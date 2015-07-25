@@ -62,7 +62,16 @@ class DependencyInjection {
         if (isset($this->services[$service]))
                 return $this->services[$service];
 
-        $file = $this->serviceList[$service];
+        if (isset($this->serviceList[$service]['requirements']))
+            foreach($this->serviceList[$service]['requirements'] as $requirement) {
+                $reqfile = __DIR__ . '/../' . $requirement . '.php';
+                if (!file_exists($reqfile))
+                    throw new Zend_Exception('Service ' . $service . ' requires ' . $requirement . ' but was not found.');
+
+                require_once $reqfile;
+            }
+
+        $file = $this->serviceList[$service]['classfile'];
         $classFile = __DIR__ . '/../' . $file . '.php';
 
         if (!file_exists($classFile))
@@ -70,7 +79,8 @@ class DependencyInjection {
 
         require_once $classFile;
 
-        $this->services[$service] = new $service();
+        $classname = basename($file);
+        $this->services[$service] = new $classname();
 
         return $this->services[$service];
     }
