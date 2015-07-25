@@ -1,112 +1,114 @@
-<div class="pesquisa-container col-md-4 col-lg-3">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="pesquisa-home">
-                <div class="formulario">
-                    <h2>Encontre seu imóvel</h2>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-12">
-                            <div class="form-group">
-                                <label for="tipo">Tipos</label>
-                                <div class="custom-select">
-                                    <select class="form-control" name="tipo" id="tipo">
-                                        <option value="">Selecione</option>
-                                        <?php foreach ($this->listas['Categoria'] as $categoria) : ?>
-                                            <option value="<?= $categoria ?>"><?= $categoria ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+<form action="<?php echo $this->serverUrl()?>/esselence/public/index/search">
+    <div class="pesquisa-container col-md-4 col-lg-3">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="<?php echo !empty($this->innerDivClass) ? $this->innerDivClass : 'pesquisa-home'?>">
+                    <div class="formulario">
+                        <h2>Encontre seu imóvel</h2>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="form-group">
+                                    <label for="tipo">Tipos</label>
+                                    <div class="custom-select">
+                                        <select class="form-control" name="tipo" id="tipo">
+                                            <option value="">Selecione</option>
+                                            <?php foreach ($this->listas['Categoria'] as $categoria) : ?>
+                                                <option value="<?= $categoria ?>"><?= $categoria ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-12">
-                            <div class="form-group">
-                                <label for="cidade">Cidade</label>
-                                <div class="custom-select">
-                                    <select class="form-control" name="cidade" id="cidade">
-                                        <option value="">Selecione</option>
-                                        <?php foreach ($this->listas['Cidade'] as $cidade) : ?>
-                                            <option value="<?= $cidade ?>"><?= $cidade ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <div class="custom-select">
+                                        <select class="form-control" name="cidade" id="cidade">
+                                            <option value="">Selecione</option>
+                                            <?php foreach ($this->listas['Cidade'] as $cidade) : ?>
+                                                <option value="<?= $cidade ?>"><?= $cidade ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-12">
-                            <div class="form-group">
-                                <label for="cidade">Bairros</label>
-                                <div class="custom-select">
-                                    <select class="form-control" name="bairros" id="bairros">
-                                        <option value="">Selecione</option>
-                                        <?php foreach ($this->listas['Bairro'] as $bairro) : ?>
-                                            <option value="<?= $bairro ?>"><?= $bairro ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="form-group">
+                                    <label for="cidade">Bairros</label>
+                                    <div class="custom-select">
+                                        <select class="form-control" name="bairros" id="bairros">
+                                            <option value="">Selecione</option>
+                                            <?php foreach ($this->listas['Bairro'] as $bairro) : ?>
+                                                <option value="<?= $bairro ?>"><?= $bairro ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-6">
-                            <div class="form-group">
-                                <label for="valor_min">Valor mín.</label>
-                                <div class="custom-select">
-                                    <select class="form-control" name="valor_min" id="valor_min">
-                                        <option value="">100.000</option>
-                                        <option value="">200.000</option>
-                                        <option value="">300.000</option>
-                                    </select>
+                            <div class="col-xs-6 col-sm-3 col-md-6">
+                                <div class="form-group">
+                                    <label for="valor_min">Valor mín.</label>
+                                    <div class="custom-select">
+                                        <select class="form-control" name="valor_min" id="valor_min">
+                                            <option value="">100.000</option>
+                                            <option value="">200.000</option>
+                                            <option value="">300.000</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-6">
-                            <div class="form-group">
-                                <label for="valor_min">Valor max.</label>
-                                <div class="custom-select">
-                                    <select class="form-control" name="valor_max" id="valor_max">
-                                        <option value="">100.000</option>
-                                        <option value="">200.000</option>
-                                        <option value="">300.000</option>
-                                    </select>
+                            <div class="col-xs-6 col-sm-3 col-md-6">
+                                <div class="form-group">
+                                    <label for="valor_min">Valor max.</label>
+                                    <div class="custom-select">
+                                        <select class="form-control" name="valor_max" id="valor_max">
+                                            <option value="">100.000</option>
+                                            <option value="">200.000</option>
+                                            <option value="">300.000</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-12">
-                            <div class="form-group">
-                                <label for="valor_min">Dormitórios</label>
-                                <div class="btn-group clearfix" data-toggle="buttons">
-                                    <label class="btn btn-checkbox">
-                                        <input type="checkbox" autocomplete="off"><i>1</i>
-                                    </label>
-                                    <label class="btn btn-checkbox">
-                                        <input type="checkbox" autocomplete="off"><i>2</i>
-                                    </label>
-                                    <label class="btn btn-checkbox">
-                                        <input type="checkbox" autocomplete="off"><i>3</i>
-                                    </label>
-                                    <label class="btn btn-checkbox">
-                                        <input type="checkbox" autocomplete="off"><i>4</i>
-                                    </label>
-                                    <label class="btn btn-checkbox">
-                                        <input type="checkbox" autocomplete="off"><i>5+</i>
-                                    </label>
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="form-group">
+                                    <label for="valor_min">Dormitórios</label>
+                                    <div class="btn-group clearfix" data-toggle="buttons">
+                                        <label class="btn btn-checkbox">
+                                            <input type="checkbox" autocomplete="off"><i>1</i>
+                                        </label>
+                                        <label class="btn btn-checkbox">
+                                            <input type="checkbox" autocomplete="off"><i>2</i>
+                                        </label>
+                                        <label class="btn btn-checkbox">
+                                            <input type="checkbox" autocomplete="off"><i>3</i>
+                                        </label>
+                                        <label class="btn btn-checkbox">
+                                            <input type="checkbox" autocomplete="off"><i>4</i>
+                                        </label>
+                                        <label class="btn btn-checkbox">
+                                            <input type="checkbox" autocomplete="off"><i>5+</i>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-12">
-                            <div class="form-group">
-                                <input type="submit" value="Buscar Imóveis" class="btn-buscar"/>
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" value="<?php echo !empty($this->buttonText) ? $this->buttonText : 'Buscar Imóveis'?>" class="btn-buscar"/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="pesquisa-codigo">
-                    <div class="form-group">
-                        <div class="fl-left">
-                            <label for="input-codigo">Buscar por código</label>
-                            <input type="text" id="input-codigo" name="input-codigo" placeholder="Digite aqui..."/>
+                    <div class="pesquisa-codigo">
+                        <div class="form-group">
+                            <div class="fl-left">
+                                <label for="input-codigo">Buscar por código</label>
+                                <input type="text" id="input-codigo" name="input-codigo" placeholder="Digite aqui..."/>
+                            </div>
+                            <button type="submit"><i class="icon-search"></i></button>
                         </div>
-                        <button type="submit"><i class="icon-search"></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>

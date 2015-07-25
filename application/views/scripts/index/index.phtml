@@ -1,6 +1,10 @@
 <div class="container">
     <!--PESQUISA-->
-    <?php echo $this->render('index/busca_form.phtml'); ?>
+    <?php echo $this->partial('index/busca_form.phtml', array(
+        'listas' => $this->listas,
+        'innerDivClass' => 'pesquisa-home',
+        'buttonText' => 'Buscar Imóveis',
+    )); ?>
     <!--/PESQUISA-->
 
     <!--SLIDE-->
@@ -11,3 +15,4 @@
     <?php echo $this->render('imoveis/listagem.phtml'); ?>
     <!--/LISTAGEM DE IMÓVEIS-->
 </div>
+<?php echo $this->serverUrl();?>
