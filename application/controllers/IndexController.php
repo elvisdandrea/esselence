@@ -24,11 +24,10 @@ class IndexController extends Zend_Controller_Action
     public function indexAction() {
 
         $vista = Services::get('vista_rest');
-        $vista->getDestaques();
+        $vista->getListasBusca();
 
-        #print_r($vista->getResult());
-        #print_r($vista->getRequestURL());
-        
+        $this->view->listas = $vista->getResult();
+
     }
 
 

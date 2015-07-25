@@ -27,4 +27,15 @@ class VistaRest extends Vista {
 
     }
 
+    public function getListasBusca() {
+
+        $this->setVistaMethod('imoveis', 'listarConteudo');
+        $this->addFieldParam('Categoria');
+        $this->addFieldParam('Bairro');
+        $this->addFieldParam('Cidade');
+
+        $this->execute();
+
+    }
+
 }
