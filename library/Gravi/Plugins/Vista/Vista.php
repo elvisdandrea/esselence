@@ -73,6 +73,9 @@ class Vista {
         $this->restClient->setFormat('json');
 
         $this->loadConfig();
+
+        $this->restClient->setUrl($this->getURL());
+        $this->restClient->addParam('key', $this->getConfig('key'));
     }
 
     /**
@@ -210,9 +213,51 @@ class Vista {
         );
     }
 
+    /**
+     * Returns the request Errors
+     *
+     * @return mixed
+     */
+    public function getErrors() {
+
+        return $this->restClient->getErrors();
+    }
+
+    /**
+     * Returns the Request Information
+     *
+     * @return mixed
+     */
+    public function getInfo() {
+
+       return $this->restClient->getInfo();
+    }
+
+    /**
+     * Returns the request result
+     *
+     * @return array
+     */
+    public function getResult() {
+
+        return $this->result;
+    }
+
+    /**
+     * Returns the request url
+     *
+     * @return mixed
+     */
+    public function getRequestURL() {
+
+        return $this->restClient->getUrl();
+    }
+
+    /**
+     * Executes the request to the API
+     */
     public function execute() {
 
-        $this->restClient->setUrl($this->getURL());
         $this->restClient->setUri($this->vistaMethod);
         $this->restClient->setMethod($this->requestMethod);
 
@@ -224,8 +269,9 @@ class Vista {
         $this->restClient->addParam($requestParam, json_encode($this->params));
         $this->restClient->execute();
 
-        print_r($this->restClient->getResponse());
-        exit;
+        $this->result = $this->restClient->getResponse();
+
+        #if (isset($this->result['']))
 
     }
 
