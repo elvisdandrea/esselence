@@ -26,9 +26,9 @@ class IndexController extends Zend_Controller_Action
         $vista = Services::get('vista_rest');
         $vista->getDestaques();
 
-        print_r($vista->getResult());
+        #print_r($vista->getResult());
         #print_r($vista->getRequestURL());
-        exit;
+        
     }
 
 

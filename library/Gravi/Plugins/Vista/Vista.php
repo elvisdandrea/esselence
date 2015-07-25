@@ -59,7 +59,12 @@ class Vista {
      *
      * @var array
      */
-    private $pagination = array();
+    private $pagination = array(
+        'total'         => 0,
+        'paginas'       => 0,
+        'pagina'        => 0,
+        'quantidade'    => 0
+    );
 
     /**
      * Constructor
@@ -254,6 +259,46 @@ class Vista {
     }
 
     /**
+     * Returns the number of pages
+     *
+     * @return mixed
+     */
+    public function getTotalPages() {
+
+        return $this->pagination['paginas'];
+    }
+
+    /**
+     * Returns the number of total results
+     *
+     * @return mixed
+     */
+    public function getTotalItems() {
+
+        return $this->pagination['total'];
+    }
+
+    /**
+     * Returns the number of the current page
+     *
+     * @return mixed
+     */
+    public function getCurrentPage() {
+
+        return $this->pagination['pagina'];
+    }
+
+    /**
+     * Returns the number of results per page
+     *
+     * @return mixed
+     */
+    public function getResultsPerPage() {
+
+        return $this->pagination['quantidade'];
+    }
+
+    /**
      * Executes the request to the API
      */
     public function execute() {
@@ -271,7 +316,8 @@ class Vista {
 
         $this->result = $this->restClient->getResponse();
 
-        #if (isset($this->result['']))
+        foreach (array_keys($this->pagination) as $pagParam)
+            if (isset($this->result[$pagParam])) $this->pagination[$pagParam] = intval($this->result[$pagParam]);
 
     }
 
