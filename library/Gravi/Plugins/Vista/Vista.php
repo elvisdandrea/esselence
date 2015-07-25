@@ -69,6 +69,9 @@ class Vista {
     public function __construct() {
 
         $this->restClient = Services::get('restclient');
+        $this->restClient->addHeader('Accept', 'application/json');
+        $this->restClient->setFormat('json');
+
         $this->loadConfig();
     }
 
@@ -105,6 +108,21 @@ class Vista {
         if (!isset($this->config[$name])) return false;
 
         return $this->config[$name];
+    }
+
+    /**
+     * Returns the processed URL
+     *
+     * @return  string
+     */
+    public function getURL() {
+
+        $url = $this->getConfig('url');
+        (strpos($url, 'http://') == 0 ||
+            strpos($url, 'https://') == 0) || $url = 'http://' . $url;
+
+        return trim($url, '/') . '/';
+
     }
 
     /**
@@ -194,8 +212,7 @@ class Vista {
 
     public function execute() {
 
-        $this->restClient->addHeader('Accept', 'application/json');
-        $this->restClient->setUrl($this->getConfig('url'));
+        $this->restClient->setUrl($this->getURL());
         $this->restClient->setUri($this->vistaMethod);
         $this->restClient->setMethod($this->requestMethod);
 
@@ -204,7 +221,7 @@ class Vista {
 
         $requestParam = $this->requestMethod == 'get' ? 'pesquisa' : 'cadastro';
 
-        $this->restClient->addParam($requestParam, $this->params);
+        $this->restClient->addParam($requestParam, json_encode($this->params));
         $this->restClient->execute();
 
         print_r($this->restClient->getResponse());

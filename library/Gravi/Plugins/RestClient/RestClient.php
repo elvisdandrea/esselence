@@ -50,6 +50,20 @@ class RestClient {
     private $response;
 
     /**
+     * The Request info
+     *
+     * @var
+     */
+    private $info;
+
+    /**
+     * The Response errors
+     *
+     * @var
+     */
+    private $errors;
+
+    /**
      * The Response Format
      *
      * @var
@@ -159,6 +173,24 @@ class RestClient {
     }
 
     /**
+     * Returns the Request Information
+     *
+     * @return mixed
+     */
+    public function getInfo() {
+        return $this->info;
+    }
+
+    /**
+     * Returns the Response Errors
+     *
+     * @return mixed
+     */
+    public function getErrors() {
+        return $this->errors;
+    }
+
+    /**
      * Executes a ReST request
      */
     public function execute() {
@@ -197,6 +229,8 @@ class RestClient {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $this->response = curl_exec($ch);
+        $this->info     = curl_getinfo($ch);
+        $this->errors   = curl_error($ch);
 
         switch ($this->format) {
             case 'json':
