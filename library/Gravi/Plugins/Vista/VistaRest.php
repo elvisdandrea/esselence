@@ -38,4 +38,26 @@ class VistaRest extends Vista {
 
     }
 
+    public function buscaImoveis(array $filtros) {
+
+        $this->setVistaMethod('imoveis', 'listar');
+
+        $this->addFieldParam('Codigo');
+        $this->addFieldParam('Categoria');
+        $this->addFieldParam('Bairro');
+        $this->addFieldParam('Cidade');
+        $this->addFieldParam('valorVenda');
+        $this->addFieldParam('Dormitorios');
+        $this->addFieldParam('Suites');
+        $this->addFieldParam('Vagas');
+        $this->addFieldParam('AreaTotal');
+        $this->addFieldParam('Caracteristicas');
+        $this->addFieldParam('InfraEstrutura');
+
+        empty($filtros) || $this->addFilterParam($filtros);
+
+        $this->execute();
+        print_r($this->getRequestURL());exit;
+    }
+
 }
