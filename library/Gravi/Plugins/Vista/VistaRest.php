@@ -59,4 +59,9 @@ class VistaRest extends Vista {
         $this->execute();
     }
 
+    public function getSuperDestaques() {
+
+        $this->setVistaMethod('imoveis', 'listar');
+    }
+
 }
