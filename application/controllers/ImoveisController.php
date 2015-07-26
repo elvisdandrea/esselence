@@ -6,9 +6,9 @@
  * Time: 20:55
  */
 
-class SearchController extends Zend_Controller_Action{
+class ImoveisController extends Zend_Controller_Action{
 
-    public function indexAction(){
+    public function listagemAction(){
         $vista = Services::get('vista_rest');
         $params = $this->_request->getParams();
 
