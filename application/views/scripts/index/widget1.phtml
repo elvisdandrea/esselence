@@ -21,7 +21,7 @@
                     ?>
                     <div class="col-xs-6">
                         <div class="destaque destaque-<?= ($count == 0 ? 'big' : 'mid') ?>">
-                            <a href="#">
+                            <a href="<?= $this->serverURL() . BASEDIR ?>/imoveis/detalhes?codigo=<?= $widget1['Codigo']; ?>">
                                 <div class="destaque-img" style="background-image: url(<?= $widget1['FotoDestaque'] ?>)"></div>
                                 <div class="content-destaque">
                                     <span class="block destaque-tipo"><?= $widget1['Categoria']; ?></span>
@@ -43,7 +43,7 @@
         <?php if ($last) : ?>
             <div class="col-xs-12">
                 <div class="destaque destaque-big">
-                    <a href="#">
+                    <a href="<?= $this->serverURL() . BASEDIR ?>/imoveis/detalhes?codigo=<?= $last['Codigo']; ?>">
                         <div class="destaque-img" style="background-image: url(<?= $last['FotoDestaque'] ?>)"></div>
                         <div class="content-destaque content-destaque-big">
                             <span class="block destaque-tipo"><?= $last['Categoria']; ?></span>

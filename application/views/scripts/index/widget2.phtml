@@ -7,60 +7,29 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="row">
-                <div class="col-xs-3">
-                    <div class="destaque destaque-mid">
-                        <a href="#">
-                            <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                            <div class="content-destaque">
-                                <span class="block destaque-tipo">Apartamento</span>
-                                <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                <span class="block destaque-preco">R$ 500.000,00</span>
-                                <span class="block destaque-codigo">E1234</span>
-                            </div>
-                            <div class="shadow"></div>
-                        </a>
+                <?php
+                $count = 0;
+                foreach ($this->widget2 as $widget2) : ?>
+                    <div class="col-xs-<?= ($count == 2 ? '6' : '3'); ?>">
+                        <div class="destaque destaque-<?= ($count > 1 ? 'mid' : 'big') ?>">
+                            <a href="<?= $this->serverURL() . BASEDIR ?>/imoveis/detalhes?codigo=<?= $widget2['Codigo']; ?>">
+                                <div class="destaque-img" style="background-image: url(<?= $widget2['FotoDestaque']; ?>)"></div>
+                                <div class="content-destaque">
+                                    <span class="block destaque-tipo"><?= $widget2['Cateogira']; ?></span>
+                                    <?php if (intval($widget2['Dormitorios']) > 0) :?>
+                                        <h4 class="destaque-caracteristicas"><?= $widget2['Dormitorios']; ?> dormitórios</h4>
+                                    <?php endif; ?>
+                                    <span class="block destaque-preco">R$ <?= $widget2['ValorVenda']; ?></span>
+                                    <span class="block destaque-codigo"><?= $widget2['Codigo']; ?></span>
+                                </div>
+                                <div class="shadow"></div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="destaque destaque-mid">
-                        <a href="#">
-                            <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                            <div class="content-destaque">
-                                <span class="block destaque-tipo">Apartamento</span>
-                                <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                <span class="block destaque-preco">R$ 500.000,00</span>
-                                <span class="block destaque-codigo">E1234</span>
-                            </div>
-                            <div class="shadow"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xs-6">
-                    <div class="destaque destaque-big">
-                        <a href="#">
-                            <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                            <div class="content-destaque content-destaque-big">
-                                <span class="block destaque-tipo">Apartamento</span>
-                                <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                <span class="block destaque-preco">R$ 500.000,00</span>
-                                <span class="block destaque-codigo">E1234</span>
-                            </div>
-                            <div class="shadow"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="destaque destaque-big">
-                        <a href="#">
-                            <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                            <div class="content-destaque">
-                                <span class="block destaque-tipo">Apartamento</span>
-                                <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                <span class="block destaque-preco">R$ 500.000,00</span>
-                                <span class="block destaque-codigo">E1234</span>
-                            </div>
-                            <div class="shadow"></div>
-                        </a>
-                    </div>
-                </div>
+                <?php
+                    $count++;
+                    if ($count >= 4) break;
+                endforeach; ?>
             </div>
         </div>
     </div>
