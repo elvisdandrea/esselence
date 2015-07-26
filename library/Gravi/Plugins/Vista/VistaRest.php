@@ -48,18 +48,16 @@ class VistaRest extends Vista {
         $this->addFieldParam('Cidade');
         $this->addFieldParam('ValorVenda');
         $this->addFieldParam('Dormitorios');
+        $this->addFieldParam('Empreendimento');
         $this->addFieldParam('Suites');
         $this->addFieldParam('Vagas');
         $this->addFieldParam('AreaTotal');
+        $this->addFieldParam('FotoDestaque');
+        $this->addFieldParam('FotoDestaquePequena');
 
         empty($filtros) || $this->addFilterParam($filtros);
 
         $this->execute();
-    }
-
-    public function getSuperDestaques() {
-
-        $this->setVistaMethod('imoveis', 'listar');
     }
 
 }

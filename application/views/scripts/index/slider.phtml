@@ -1,83 +1,27 @@
 <div class="col-xs-12 col-md-8 col-lg-9 slide-home-container">
     <div class="slide-home">
         <div class="slide-in">
-            <div class="slide">
-                <a href="#">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=180" alt="Imagem de exemplo"/>
-                    <div class="content-slider">
-                        <h3>Terrenos no <br/>condomínio marítimo</h3>
-                        <p>A partir de R$ 350.000,00</p>
-                        <span href="#" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
-                    </div>
-                    <div class="shadow"></div>
-                </a>
-            </div>
-            <div class="slide">
-                <a href="#">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=180" alt="Imagem de exemplo"/>
-                    <div class="content-slider">
-                        <h3>Terrenos no <br/>condomínio marítimo</h3>
-                        <p>A partir de R$ 350.000,00</p>
-                        <span href="#" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
-                    </div>
-                    <div class="shadow"></div>
-                </a>
-            </div>
-            <div class="slide">
-                <a href="#">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=180" alt="Imagem de exemplo"/>
-                    <div class="content-slider">
-                        <h3>Terrenos no <br/>condomínio marítimo</h3>
-                        <p>A partir de R$ 350.000,00</p>
-                        <span href="#" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
-                    </div>
-                    <div class="shadow"></div>
-                </a>
-            </div>
-            <div class="slide">
-                <a href="#">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=180" alt="Imagem de exemplo"/>
-                    <div class="content-slider">
-                        <h3>Terrenos no <br/>condomínio marítimo</h3>
-                        <p>A partir de R$ 350.000,00</p>
-                        <span href="#" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
-                    </div>
-                    <div class="shadow"></div>
-                </a>
-            </div>
-            <div class="slide">
-                <a href="#">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=180" alt="Imagem de exemplo"/>
-                    <div class="content-slider">
-                        <h3>Terrenos no <br/>condomínio marítimo</h3>
-                        <p>A partir de R$ 350.000,00</p>
-                        <span href="#" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
-                    </div>
-                    <div class="shadow"></div>
-                </a>
-            </div>
+            <?php foreach ($this->banners as $banner) : ?>
+                <div class="slide">
+                    <a href="#">
+                        <img src="<?= $banner['FotoDestaque']; ?>" alt="<?= $banner['Codigo']; ?>"/>
+                        <div class="content-slider">
+                            <h3><?= $banner['Empreendimento']; ?></h3>
+                            <p>A partir de R$ <?= $banner['ValorVenda']; ?></p>
+                            <span href="<?= $this->serverURL() ?>" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
+                        </div>
+                        <div class="shadow"></div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
         </div>
         <div class="custom-nav-slide">
-            <a data-slide-index="0" href="">
-                <span class="custom-nav-link">Terrenos no condomínio marítimo</span>
-                <span class="bar-progress"></span>
-            </a>
-            <a data-slide-index="1" href="">
-                <span class="custom-nav-link">santos dummont residencial</span>
-                <span class="bar-progress"></span>
-            </a>
-            <a data-slide-index="2" href="">
-                <span class="custom-nav-link">sat <br/> residence</span>
-                <span class="bar-progress"></span>
-            </a>
-            <a data-slide-index="3" href="">
-                <span class="custom-nav-link">villa toscana residencial</span>
-                <span class="bar-progress"></span>
-            </a>
-            <a data-slide-index="4" href="">
-                <span class="custom-nav-link">residencial verano</span>
-                <span class="bar-progress"></span>
-            </a>
+            <?php foreach ($this->banners as $banner) : ?>
+                <a data-slide-index="0" href="">
+                    <span class="custom-nav-link"><?= $banner['Empreendimento']; ?></span>
+                    <span class="bar-progress"></span>
+                </a>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

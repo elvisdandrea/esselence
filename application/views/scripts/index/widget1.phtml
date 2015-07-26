@@ -1,0 +1,64 @@
+
+
+<!-- Widget 1 : Apartamentos de 1 e 2 Dormitórios -->
+<div class="destaques-title">
+    <h3 class="title-section"><strong>Apartamentos</strong> de 2 e 3 dormitórios</h3>
+    <span class="toggle-imoveis is-active" data-content="destaques-1"><i class="icon-arrow-down"></i></span>
+    <a href="#" class="ver-mais">Veja mais apartamentos <i class="icon-arrow-left"></i></a>
+</div>
+<div class="destaques-content is-active" data-target="destaques-1">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <?php
+                $last = false;
+                $count = 0;
+                foreach ($this->widget1 as $widget1) :
+                    if ($count >= 3) {
+                        $last = $widget1;
+                        break;
+                    }
+                    ?>
+                    <div class="col-xs-6">
+                        <div class="destaque destaque-<?= ($count == 0 ? 'big' : 'mid') ?>">
+                            <a href="#">
+                                <div class="destaque-img" style="background-image: url(<?= $widget1['FotoDestaque'] ?>)"></div>
+                                <div class="content-destaque">
+                                    <span class="block destaque-tipo"><?= $widget1['Categoria']; ?></span>
+                                    <?php if (intval($widget1['Dormitorios']) > 0) : ?>
+                                        <h4 class="destaque-caracteristicas"><?= $widget1['Dormitorios']; ?> dormitórios</h4>
+                                    <?php endif; ?>
+                                    <span class="block destaque-preco">R$ <?= $widget1['ValorVenda']; ?></span>
+                                    <span class="block destaque-codigo"><?= $widget1['Codigo']; ?></span>
+                                </div>
+                                <div class="shadow"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <?php
+                    $count++;
+                endforeach; ?>
+            </div>
+        </div>
+        <?php if ($last) : ?>
+            <div class="col-xs-12">
+                <div class="destaque destaque-big">
+                    <a href="#">
+                        <div class="destaque-img" style="background-image: url(<?= $last['FotoDestaque'] ?>)"></div>
+                        <div class="content-destaque content-destaque-big">
+                            <span class="block destaque-tipo"><?= $last['Categoria']; ?></span>
+                            <?php if (intval($last['Dormitorios']) > 0) : ?>
+                                <h4 class="destaque-caracteristicas"><?= $last['Dormitorios']; ?> dormitórios</h4>
+                            <?php endif; ?>
+                            <span class="block destaque-preco">R$ <?= $last['ValorVenda']; ?></span>
+                            <span class="block destaque-codigo"><?= $last['Codigo']; ?></span>
+                        </div>
+                        <div class="shadow"></div>
+                    </a>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<!-- /Widget 1-->

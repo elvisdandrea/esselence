@@ -28,6 +28,35 @@ class IndexController extends Zend_Controller_Action
 
         $this->view->listas = $vista->getResult();
 
+        $vista->reset();
+
+        $filtroBanner = array(
+            'Categoria' => 'Empreendimento'
+        );
+
+        $vista->buscaImoveis($filtroBanner);
+        $this->view->banners = $vista->getResult();
+
+        $vista->reset();
+
+        $filtroWidget1 = array(
+            'Categoria'     => 'Apartamento',
+            'Dormitorios'   => array(1,2)
+        );
+
+        $vista->buscaImoveis($filtroWidget1);
+        $this->view->widget1 = $vista->getResult();
+
+        $vista->reset();
+
+        $filtroWidget2 = array(
+            'Categoria'     => 'Casa'
+        );
+
+        $vista->buscaImoveis($filtroWidget2);
+        $this->view->widget2 = $vista->getResult();
+
+
     }
 
 }

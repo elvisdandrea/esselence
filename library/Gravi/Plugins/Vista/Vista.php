@@ -190,7 +190,8 @@ class Vista {
      */
     public function addFilterParam(array $filter) {
 
-        $this->params['filter'][] = $filter;
+        isset($this->params['filter']) || ($this->params['filter'] = array());
+        $this->params['filter'] = array_merge($this->params['filter'], $filter);
     }
 
     /**
@@ -296,6 +297,17 @@ class Vista {
     public function getResultsPerPage() {
 
         return $this->pagination['quantidade'];
+    }
+
+    /**
+     * Reset the class state to its default
+     */
+    public function reset() {
+
+        $this->params        = array();
+        $this->result        = array();
+        $this->vistaMethod   = '';
+        $this->requestMethod = 'get';
     }
 
     /**

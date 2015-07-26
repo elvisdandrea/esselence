@@ -123,7 +123,7 @@ class RestClient {
      */
     public function getUrl() {
 
-        $url = $this->url;
+        $url = $this->url . $this->uri;
 
         if ($this->method == 'get' && count($this->params) > 0) {
             $data = urldecode(http_build_query($this->params));
