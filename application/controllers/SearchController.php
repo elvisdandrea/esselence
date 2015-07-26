@@ -8,20 +8,19 @@
 
 class SearchController extends Zend_Controller_Action{
 
-    public function searchAction(){
+    public function indexAction(){
         $vista = Services::get('vista_rest');
         $params = $this->_request->getParams();
 
         $filtros = array(
-            'tipo' => $params['tipo'],
-            'cidade' => $params['cidade'],
-            'bairros' => $params['bairros'],
-            'valor_min' => $params['valor_min'],
-            'valor_max' => $params['valor_max'],
+            'Categoria' => $params['tipo'],
+            'Cidade' => $params['cidade'],
+            'Bairro' => $params['bairros'],
+            'ValorVenda' => array($params['valor_min'], $params['valor_max']),
         );
 
         $vista->buscaImoveis($filtros);
-        print_r($vista->getResult());exit;
+
         $this->view->imoveis = $vista->getResult();
     }
 
