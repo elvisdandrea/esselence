@@ -1,6 +1,12 @@
 <?php
 
-define('APPLICATION_ENV', 'development');
+function isLocal() {
+    return !filter_var(filter_input(INPUT_SERVER,'SERVER_ADDR'), FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)
+    || (((ip2long(filter_input(INPUT_SERVER,'SERVER_ADDR')) & 0xff000000) == 0x7f000000) );
+}
+
+define('BASEDIR',
+isLocal() ? '/esselence/public' : '');
 
 // Define path to application directory
 defined('APPLICATION_PATH')
