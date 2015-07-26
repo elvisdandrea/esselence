@@ -1,3 +1,4 @@
+<?php $params = Zend_Controller_Front::getInstance()->getRequest()->getParams();?>
 <form action="<?php echo $this->serverUrl()?>/esselence/public/imoveis/listagem">
     <div class="pesquisa-container col-md-4 col-lg-3">
         <div class="row">
@@ -13,7 +14,7 @@
                                         <select class="form-control" name="tipo" id="tipo">
                                             <option value="">Selecione</option>
                                             <?php foreach ($this->listas['Categoria'] as $categoria) : ?>
-                                                <option value="<?= $categoria ?>"><?= $categoria ?></option>
+                                                <option value="<?= $categoria ?>"<?php if(array_key_exists('tipo', $params) && $params['tipo'] == $categoria):?> selected<?php endif;?>><?= $categoria ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -26,7 +27,7 @@
                                         <select class="form-control" name="cidade" id="cidade">
                                             <option value="">Selecione</option>
                                             <?php foreach ($this->listas['Cidade'] as $cidade) : ?>
-                                                <option value="<?= $cidade ?>"><?= $cidade ?></option>
+                                                <option value="<?= $cidade ?>"<?php if(array_key_exists('tipo', $params) && $params['cidade'] == $cidade):?> selected<?php endif;?>><?= $cidade ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -39,7 +40,7 @@
                                         <select class="form-control" name="bairros" id="bairros">
                                             <option value="">Selecione</option>
                                             <?php foreach ($this->listas['Bairro'] as $bairro) : ?>
-                                                <option value="<?= $bairro ?>"><?= $bairro ?></option>
+                                                <option value="<?= $bairro ?>"<?php if(array_key_exists('tipo', $params) && $params['bairros'] == $bairro):?> selected<?php endif;?>><?= $bairro ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>

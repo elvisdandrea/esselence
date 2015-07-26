@@ -10,6 +10,13 @@ class ImoveisController extends Zend_Controller_Action{
 
     public function listagemAction(){
         $vista = Services::get('vista_rest');
+
+        $vista->getListasBusca();
+
+        $this->view->listas = $vista->getResult();
+
+        $vista->reset();
+
         $params = $this->_request->getParams();
 
         $filtros = array();
@@ -22,9 +29,10 @@ class ImoveisController extends Zend_Controller_Action{
 
         $vista->buscaImoveis($filtros);
 
-        $listaImoveis = $vista->getResult();
-        $this->view->imoveis = $listaImoveis;
-        $this->view->quantidadeImoveis = count($listaImoveis);
+        $vista->setPaginationParam(2, 50);
+
+        $this->view->imoveis = $vista->getResult();
+        $this->view->quantidadeImoveis = $vista->getTotalItems();
     }
 
 }

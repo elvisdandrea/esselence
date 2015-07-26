@@ -319,7 +319,7 @@ class Vista {
         $this->restClient->setMethod($this->requestMethod);
 
         !$this->requestMethod == 'get' ||
-            $this->restClient->addParam('showTotal', 1);
+            $this->restClient->addParam('showtotal', 1);
 
         $requestParam = $this->requestMethod == 'get' ? 'pesquisa' : 'cadastro';
 
