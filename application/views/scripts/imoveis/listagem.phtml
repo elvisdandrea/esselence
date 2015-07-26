@@ -1,137 +1,76 @@
-<section class="destaques-home">
-    <div class="destaques-title">
-        <h3 class="title-section"><strong>Apartamentos</strong> de 2 e 3 dormitórios</h3>
-        <span class="toggle-imoveis is-active" data-content="destaques-1"><i class="icon-arrow-down"></i></span>
-        <a href="#" class="ver-mais">Veja mais apartamentos <i class="icon-arrow-left"></i></a>
-    </div>
-    <div class="destaques-content is-active" data-target="destaques-1">
-        <div class="row">
-            <div class="col-xs-12">
+<div class="container">
+    <div class="row">
+        <!-- TÍTULO -->
+        <div class="col-lg-9 col-md-8 col-sm-10 col-xs-12">
+            <div class="title-main">
                 <div class="row">
-                    <div class="col-xs-6">
-                        <div class="destaque destaque-big">
-                            <a href="#">
-                                <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                                <div class="content-destaque">
-                                    <span class="block destaque-tipo">Apartamento</span>
-                                    <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                    <span class="block destaque-preco">R$ 500.000,00</span>
-                                    <span class="block destaque-codigo">E1234</span>
-                                </div>
-                                <div class="shadow"></div>
-                            </a>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <h2>64 imóveis encontrados</h2>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group range">
+                            <label>Ordenar por</label>
+                            <div class="custom-select">
+                                <select class="form-control" name="tipo" id="tipo">
+                                    <option value="">Escolha uma opção</option>
+                                    <option value="">Tipo</option>
+                                    <option value="">Maior valor</option>
+                                    <option value="">Menor valor</option>
+                                    <option value="">Cidade</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-6">
-                        <div class="destaque destaque-mid">
-                            <a href="#">
-                                <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                                <div class="content-destaque">
-                                    <span class="block destaque-tipo">Apartamento</span>
-                                    <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                    <span class="block destaque-preco">R$ 500.000,00</span>
-                                    <span class="block destaque-codigo">E1234</span>
-                                </div>
-                                <div class="shadow"></div>
-                            </a>
-                        </div>
-                        <div class="destaque destaque-mid">
-                            <a href="#">
-                                <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                                <div class="content-destaque">
-                                    <span class="block destaque-tipo">Apartamento</span>
-                                    <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                    <span class="block destaque-preco">R$ 500.000,00</span>
-                                    <span class="block destaque-codigo">E1234</span>
-                                </div>
-                                <div class="shadow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="destaque destaque-big">
-                    <a href="#">
-                        <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                        <div class="content-destaque content-destaque-big">
-                            <span class="block destaque-tipo">Apartamento</span>
-                            <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                            <span class="block destaque-preco">R$ 500.000,00</span>
-                            <span class="block destaque-codigo">E1234</span>
-                        </div>
-                        <div class="shadow"></div>
-                    </a>
                 </div>
             </div>
         </div>
+        <!-- /TÍTULO -->
+
+        <!-- LISTAGEM -->
+        <div class="col-lg-9 col-md-8 col-sm-10 col-xs-12">
+            <section class="imoveis-list">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="imovel-list">
+                            <a href="#" title="Apartamento, Humaitá, Tramandaí, RS">
+                                <span class="codigo">ES00113</span>
+                                <div class="imovel-picture" style="background:url(http://revistaimoveis.zap.com.br/imoveis/2012/10/casa-aluguel1.jpg)"></div>
+                                <label>Apartamento</label>
+                                <span class="local">Humaitá, Tramandaí</span>
+                                <span class="caracteristicas">2 dormitórios • 84m&sup2;</span>
+                                <span class="preco">R$ 215.000,00</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        conteudo
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        conteudo
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        conteudo
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        conteudo
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        conteudo
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /LISTAGEM -->
+
+        <!-- FORM PESQUISA -->
+        <?php echo $this->partial('index/busca_form.phtml', array(
+            'listas' => $this->listas,
+            'innerDivClass' => 'pesquisa-imoveis',
+            'buttonText' => 'Buscar novamente',
+        )); ?>
+        <!-- /FORM PESQUISA -->
+
     </div>
 
-    <div class="destaques-title">
-        <h3 class="title-section"><strong>Casas</strong> para morar</h3>
-        <span class="toggle-imoveis" data-content="destaques-2"><i class="icon-arrow-down"></i></span>
-        <a href="#" class="ver-mais">Veja mais casas <i class="icon-arrow-left"></i></a>
-    </div>
-    <div class="destaques-content" data-target="destaques-2">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="destaque destaque-mid">
-                            <a href="#">
-                                <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                                <div class="content-destaque">
-                                    <span class="block destaque-tipo">Apartamento</span>
-                                    <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                    <span class="block destaque-preco">R$ 500.000,00</span>
-                                    <span class="block destaque-codigo">E1234</span>
-                                </div>
-                                <div class="shadow"></div>
-                            </a>
-                        </div>
-                        <div class="destaque destaque-mid">
-                            <a href="#">
-                                <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                                <div class="content-destaque">
-                                    <span class="block destaque-tipo">Apartamento</span>
-                                    <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                    <span class="block destaque-preco">R$ 500.000,00</span>
-                                    <span class="block destaque-codigo">E1234</span>
-                                </div>
-                                <div class="shadow"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="destaque destaque-big">
-                            <a href="#">
-                                <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                                <div class="content-destaque content-destaque-big">
-                                    <span class="block destaque-tipo">Apartamento</span>
-                                    <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                    <span class="block destaque-preco">R$ 500.000,00</span>
-                                    <span class="block destaque-codigo">E1234</span>
-                                </div>
-                                <div class="shadow"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="destaque destaque-big">
-                            <a href="#">
-                                <div class="destaque-img" style="background-image: url(https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=160&h=240)"></div>
-                                <div class="content-destaque">
-                                    <span class="block destaque-tipo">Apartamento</span>
-                                    <h4 class="destaque-caracteristicas">2 dormitórios</h4>
-                                    <span class="block destaque-preco">R$ 500.000,00</span>
-                                    <span class="block destaque-codigo">E1234</span>
-                                </div>
-                                <div class="shadow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
