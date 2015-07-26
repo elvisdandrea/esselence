@@ -5,7 +5,7 @@
             <div class="title-main">
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <h2>64 imóveis encontrados</h2>
+                        <h2><?php echo $this->quantidadeImoveis?> imóveis encontrados</h2>
                     </div>
 
                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -31,33 +31,20 @@
         <div class="col-lg-9 col-md-8 col-sm-10 col-xs-12">
             <section class="imoveis-list">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="imovel-list">
-                            <a href="#" title="Apartamento, Humaitá, Tramandaí, RS">
-                                <span class="codigo">ES00113</span>
-                                <div class="imovel-picture" style="background:url(http://revistaimoveis.zap.com.br/imoveis/2012/10/casa-aluguel1.jpg)"></div>
-                                <label>Apartamento</label>
-                                <span class="local">Humaitá, Tramandaí</span>
-                                <span class="caracteristicas">2 dormitórios • 84m&sup2;</span>
-                                <span class="preco">R$ 215.000,00</span>
-                            </a>
+                    <?php foreach($this->imoveis as $key => $value):?>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="imovel-list">
+                                <a href="#" title="Apartamento, Humaitá, Tramandaí, RS">
+                                    <span class="codigo"><?php echo $value['Codigo']?></span>
+                                    <div class="imovel-picture" style="background:url(<?php echo $value['FotoDestaque']?>)"></div>
+                                    <label><?php echo $value['Categoria']?></label>
+                                    <span class="local"><?php echo $value['Bairro']?>, <?php echo $value['Cidade']?></span>
+                                    <span class="caracteristicas"><?php echo $value['Dormitorios']?> dormitórios • <?php echo $value['AreaTotal']?>&sup2;</span>
+                                    <span class="preco">R$ <?php echo number_format($value['ValorVenda'], 2, ',','.')?></span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                        conteudo
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                        conteudo
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                        conteudo
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                        conteudo
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                        conteudo
-                    </div>
+                    <?php endforeach;?>
                 </div>
             </section>
         </div>
