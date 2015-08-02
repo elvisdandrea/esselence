@@ -1,50 +1,50 @@
 <div class="container">
     <div class="row">
-        <!-- TÍTULO -->
-        <div class="col-lg-9 col-md-8 col-sm-10 col-xs-12">
-            <div class="title-main">
-                <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <h2><?php echo $this->quantidadeImoveis?> imóveis encontrados</h2>
-                    </div>
+        <div class="resultado-busca clearfix">
+            <span class="bg-resultado-busca col-lg-3 col-md-4"></span>
+            <!-- FORM PESQUISA -->
+            <?php echo $this->partial('index/busca_form.phtml', array(
+                'listas' => $this->listas,
+                'innerDivClass' => 'pesquisa-imoveis',
+                'buttonText' => 'Buscar novamente',
+            )); ?>
+            <!-- /FORM PESQUISA -->
 
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="form-group range">
-                            <label>Ordenar por</label>
-                            <div class="custom-select">
-                                <select class="form-control" name="tipo" id="tipo">
-                                    <option value="">Escolha uma opção</option>
-                                    <option value="">Tipo</option>
-                                    <option value="">Maior valor</option>
-                                    <option value="">Menor valor</option>
-                                    <option value="">Cidade</option>
-                                </select>
+            <!-- TÍTULO -->
+            <div class="col-lg-9 col-md-8 col-sm-10 col-xs-12">
+                <div class="title-main">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <h2><?php echo $this->quantidadeImoveis?> imóveis encontrados</h2>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group range">
+                                <label>Ordenar por</label>
+                                <div class="custom-select">
+                                    <select class="form-control" name="tipo" id="tipo">
+                                        <option value="">Escolha uma opção</option>
+                                        <option value="">Tipo</option>
+                                        <option value="">Maior valor</option>
+                                        <option value="">Menor valor</option>
+                                        <option value="">Cidade</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            <!-- /TÍTULO -->
+
+            <!-- LISTAGEM -->
+                <section class="imoveis-list">
+                    <div class="row" id="lista-imoveis">
+                        <?php echo $this->render('/imoveis/lista-imoveis.phtml')?>
+                    </div>
+                </section>
             </div>
+            <!-- /LISTAGEM -->
         </div>
-        <!-- /TÍTULO -->
-
-        <!-- LISTAGEM -->
-        <div class="col-lg-9 col-md-8 col-sm-10 col-xs-12">
-            <section class="imoveis-list">
-                <div class="row" id="lista-imoveis">
-                    <?php echo $this->render('/imoveis/lista-imoveis.phtml')?>
-                </div>
-            </section>
-        </div>
-        <!-- /LISTAGEM -->
-
-        <!-- FORM PESQUISA -->
-        <?php echo $this->partial('index/busca_form.phtml', array(
-            'listas' => $this->listas,
-            'innerDivClass' => 'pesquisa-imoveis',
-            'buttonText' => 'Buscar novamente',
-        )); ?>
-        <!-- /FORM PESQUISA -->
-
     </div>
 
 </div>

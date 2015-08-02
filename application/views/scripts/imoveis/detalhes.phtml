@@ -1,0 +1,116 @@
+<header class="head-imo">
+    <div class="container">
+        <div class="fl-left">
+            <h2 class="head-imo-info"><?php echo $this->imovel['Categoria']?> <?php echo $this->imovel['Dormitorios']?> dormitórios, <?php echo $this->imovel['Bairro']?>, <?php echo $this->imovel['Cidade']?> <small><?php echo $this->imovel['Codigo']?></small></h2>
+        </div>
+        <div class="fl-right">
+            <div class="compartilhe">
+                Compartilhe:
+                <a href="#" title="Facebook" class="facebook"><span class="icon-facebook"></span></a>
+                <a href="#" title="Twitter" class="twitter"><span class="icon-twitter"></span></a>
+                <a href="#" title="Google Plus" class="google-plus"><span class="icon-google-plus"></span></a>
+                <a href="#" title="Enviar por e-mail" class="mail"><span class="icon-mail"></span></a>
+            </div>
+        </div>
+
+        <div class="row no-padding">
+            <div class="col-xs-12 col-md-8 col-lg-9">
+                <div class="galeria-imovel">
+                    <div id="slider" class="slider flexslider">
+                        <ul class="slides">
+                            <?php foreach($this->imovel['Foto'] as $value):?>
+                                <li>
+                                    <div class="img-container">
+                                        <span>
+                                            <img src="<?php echo $value['foto']?>"/>
+                                        </span>
+                                    </div>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    </div>
+                    <div id="carousel" class="carousel flexslider">
+                        <ul class="slides">
+                            <?php foreach($this->imovel['Foto'] as $value):?>
+                                <li>
+                                    <img src="<?php echo $value['foto']?>"/>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4 col-lg-3">
+                <div class="info-imovel">
+                    <h2><?php echo $this->imovel['Empreendimento']?></h2>
+                    <div class="info-imovel-txt">
+                        <div class="row">
+                            <div class="col-xs-6"><p><strong>Tipo</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['Categoria']?></p></div>
+
+                            <div class="col-xs-6"><p><strong>Bairro</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['Bairro']?></p></div>
+
+                            <div class="col-xs-6"><p><strong>Cidade</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['Cidade']?></p></div>
+
+                            <div class="col-xs-6"><p><strong>Dormitórios</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['Dormitorios']?></p></div>
+
+                            <div class="col-xs-6"><p><strong>Suítes</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['Suites']?></p></div>
+
+                            <div class="col-xs-6"><p><strong>Vagas</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['Vagas']?></p></div>
+
+                            <div class="col-xs-6"><p><strong>Área privativa</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['AreaPrivativa']?> m²</p></div>
+
+                            <div class="col-xs-6"><p><strong>Área total</strong></p></div>
+                            <div class="col-xs-6"><p><?php echo $this->imovel['AreaTotal']?> m²</p></div>
+                        </div>
+                    </div>
+                    <div class="info-imovel-preco">
+                        <small>VALOR DO IMÓVEL</small>
+                        <h3>R$ <?php echo number_format($this->imovel['ValorVenda'], 2, ',','.')?></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="content-imo">
+    <div class="container">
+        <div class="row descricao-imovel">
+            <div class="col-xs-12 col-md-4">
+                <div class="sub-title-container">
+                    <h3 class="sub-title">Descrição do imóvel</h3>
+                </div>
+                <p>Apartamento localizado na Av. da Igreja. Apartamento composto de 2 dormitórios sendo 1 suite, sala de estar e jantar, com sacada integrada com churraqueira, área de serviço, banheiro social e 01 vaga de estacionamento privativa. Mobiliado! Venha conferir conosco!</p>
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <div class="sub-title-container">
+                    <h3 class="sub-title">Características</h3>
+                </div>
+                <ul class="row">
+                    <?php foreach($this->imovel['Caracteristicas'] as $key => $value):?>
+                        <?php if(is_numeric($value) && $value > 0):?>
+                            <li class="col-sm-6 col-md-6 col-lg-4"><?php echo "{$value} {$key}"?></li>
+                        <?php elseif($value == 'Sim'):?>
+                            <li class="col-sm-6 col-md-6 col-lg-4"><?php echo $key?></li>
+                        <?php endif;?>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+        </div>
+        <div class="mapa-imovel">
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12242.813604276287!2d-48.577312624384525!3d-27.58757863992954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbr!4v1438554658418" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="contato-imovel">
+        <?php echo $this->render('/fale-conosco/contato-form.phtml')?>
+    </div>
+</section>
