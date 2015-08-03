@@ -22,7 +22,7 @@
                                 <li>
                                     <div class="img-container">
                                         <span>
-                                            <img src="<?php echo $value['foto']?>"/>
+                                            <img src="<?php echo $value['Foto']?>"/>
                                         </span>
                                     </div>
                                 </li>
@@ -33,7 +33,7 @@
                         <ul class="slides">
                             <?php foreach($this->imovel['Foto'] as $value):?>
                                 <li>
-                                    <img src="<?php echo $value['foto']?>"/>
+                                    <img src="<?php echo $value['Foto']?>"/>
                                 </li>
                             <?php endforeach;?>
                         </ul>
@@ -86,7 +86,7 @@
                 <div class="sub-title-container">
                     <h3 class="sub-title">Descrição do imóvel</h3>
                 </div>
-                <p>Apartamento localizado na Av. da Igreja. Apartamento composto de 2 dormitórios sendo 1 suite, sala de estar e jantar, com sacada integrada com churraqueira, área de serviço, banheiro social e 01 vaga de estacionamento privativa. Mobiliado! Venha conferir conosco!</p>
+                <p><?php echo $this->imovel['Descricao']; ?></p>
             </div>
             <div class="col-xs-12 col-md-8">
                 <div class="sub-title-container">

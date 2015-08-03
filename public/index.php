@@ -5,7 +5,9 @@ function isLocal() {
     || (((ip2long(filter_input(INPUT_SERVER,'SERVER_ADDR')) & 0xff000000) == 0x7f000000) );
 }
 
-define('BASEDIR', '/esselence/public');
+isLocal() ?
+    define('BASEDIR', '/esselence/public') : define('BASEDIR', '/esselence/public');
+
 
 // Define path to application directory
 defined('APPLICATION_PATH')

@@ -44,10 +44,10 @@ class ImoveisController extends Zend_Controller_Action{
         $this->_helper->viewRenderer->setRender('lista-imoveis');
         $params = $this->_request->getParams();
 
-        /*$filtros = array();
+        $filtros = array();
 
-        empty($params['tipo']) || $filtros['Categoria'] = $params['tipo'];
-        empty($params['cidade']) || $filtros['Cidade'] = $params['cidade'];
+        empty($params['tipo'])    || $filtros['Categoria'] = $params['tipo'];
+        empty($params['cidade'])  || $filtros['Cidade'] = $params['cidade'];
         empty($params['bairros']) || $filtros['Bairro'] = $params['bairros'];
 
         (empty($params['valor_min']) && empty($params['valor_max'])) || $filtros['ValorVenda'] = array($params['valor_min'], $params['valor_max']);
@@ -58,25 +58,7 @@ class ImoveisController extends Zend_Controller_Action{
         $vista->buscaImoveis($filtros);
 
         $this->view->imoveis = $vista->getResult();
-        */
 
-        $placeholderImoveis = array(
-            'Categoria' => 'Categoria',
-            'Bairro' => 'Bairro',
-            'Cidade' => 'Cidade',
-            'Codigo' => 1337,
-            'Cidade' => 'Cidade',
-            'FotoDestaque' => '',
-            'Dormitorios' => 42,
-            'AreaTotal' => 42,
-            'ValorVenda' => 1337,
-        );
-        $imoveis = array();
-        $imoveis[] = $placeholderImoveis;
-        $imoveis[] = $placeholderImoveis;
-        $imoveis[] = $placeholderImoveis;
-
-        $this->view->imoveis = $imoveis;
     }
 
     public function detalhesAction(){

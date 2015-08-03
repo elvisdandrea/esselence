@@ -72,6 +72,7 @@ class VistaRest extends Vista {
         $this->addFieldParam('ValorVenda');
         $this->addFieldParam('Dormitorios');
         $this->addFieldParam('Empreendimento');
+        $this->addFieldParam('Descricao');
         $this->addFieldParam('Suites');
         $this->addFieldParam('Vagas');
         $this->addFieldParam('AreaTotal');
