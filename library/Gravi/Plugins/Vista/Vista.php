@@ -333,6 +333,8 @@ class Vista {
 
     }
 
-
+    public function addParam($key, $value){
+        $this->restClient->addParam($key, $value);
+    }
 
 }

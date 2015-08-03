@@ -60,4 +60,29 @@ class VistaRest extends Vista {
         $this->execute();
     }
 
+    public function getDadosImovel($imoCodigo){
+        $this->setVistaMethod('imoveis', 'detalhes');
+
+        $this->addParam('imovel', $imoCodigo);
+
+        $this->addFieldParam('Codigo');
+        $this->addFieldParam('Categoria');
+        $this->addFieldParam('Bairro');
+        $this->addFieldParam('Cidade');
+        $this->addFieldParam('ValorVenda');
+        $this->addFieldParam('Dormitorios');
+        $this->addFieldParam('Empreendimento');
+        $this->addFieldParam('Suites');
+        $this->addFieldParam('Vagas');
+        $this->addFieldParam('AreaTotal');
+        $this->addFieldParam('AreaPrivativa');
+        $this->addFieldParam(array('Foto' => array('Foto', 'FotoPequena', 'Destaque')));
+        $this->addFieldParam('Caracteristicas');
+        $this->addFieldParam('InfraEstrutura');
+        $this->addFieldParam('Latitude');
+        $this->addFieldParam('Longitude');
+
+        $this->execute();
+    }
+
 }
