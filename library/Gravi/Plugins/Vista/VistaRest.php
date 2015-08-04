@@ -86,4 +86,12 @@ class VistaRest extends Vista {
         $this->execute();
     }
 
+    public function getAuthEmail() {
+
+        $this->setVistaMethod(false, 'emailauth');
+        $this->setEmptyBody(true);
+        $this->execute();
+
+    }
+
 }

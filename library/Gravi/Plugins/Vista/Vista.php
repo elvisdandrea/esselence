@@ -55,6 +55,13 @@ class Vista {
     private $result = array();
 
     /**
+     * If request body must be empty
+     *
+     * @var bool
+     */
+    private $emptyBody = false;
+
+    /**
      * Contains the method pagination
      *
      * @var array
@@ -141,6 +148,10 @@ class Vista {
      */
     public function setVistaMethod($module, $method) {
 
+        if (!$module) {
+            $this->vistaMethod = $method;
+            return;
+        }
         $this->vistaMethod = $module . '/' . $method;
     }
 
@@ -166,6 +177,17 @@ class Vista {
     public function setParams(array $params) {
 
         $this->params = $params;
+    }
+
+    /**
+     * Sets EmptyBody true|false
+     *
+     * @param $emptyBody
+     */
+    public function setEmptyBody($emptyBody) {
+
+        if (!is_bool($emptyBody)) $emptyBody = false;
+        $this->emptyBody = $emptyBody;
     }
 
     /**
@@ -323,7 +345,9 @@ class Vista {
 
         $requestParam = $this->requestMethod == 'get' ? 'pesquisa' : 'cadastro';
 
-        $this->restClient->addParam($requestParam, json_encode($this->params));
+        if (!$this->emptyBody)
+            $this->restClient->addParam($requestParam, json_encode($this->params));
+
         $this->restClient->execute();
 
         $this->result = $this->restClient->getResponse();
