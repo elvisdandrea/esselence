@@ -45,28 +45,4 @@ class ImoveisController extends Zend_Controller_Action{
         $this->view->quantidadeImoveis = $vista->getTotalItems();
     }
 
-    public function showMoreAction(){
-        if(!$this->_request->isXmlHttpRequest())
-            $this->redirect($this->view->serverUrl().BASEDIR.'/imoveis/listagem');
-
-
-        $this->_helper->viewRenderer->setRender('lista-imoveis');
-        $params = $this->_request->getParams();
-
-        $filtros = array();
-
-        empty($params['tipo'])    || $filtros['Categoria'] = $params['tipo'];
-        empty($params['cidade'])  || $filtros['Cidade']    = $params['cidade'];
-        empty($params['bairros']) || $filtros['Bairro']    = $params['bairros'];
-
-        (empty($params['valor_min']) && empty($params['valor_max'])) || $filtros['ValorVenda'] = array($params['valor_min'], $params['valor_max']);
-
-        $vista = Services::get('vista_rest');
-
-        $vista->setPaginationParam(1, 9);
-        $vista->buscaImoveis($filtros);
-
-        $this->view->imoveis = $vista->getResult();
-
-    }
 }
