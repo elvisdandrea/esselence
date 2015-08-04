@@ -1,4 +1,7 @@
-<?php $params = Zend_Controller_Front::getInstance()->getRequest()->getParams();?>
+<?php
+    $params = Zend_Controller_Front::getInstance()->getRequest()->getParams();
+    $dorms  = isset($params['dormitorios']) ? explode(',', $params['dormitorios']) : array();
+?>
 <div class="pesquisa-container col-lg-3 col-md-4 col-sm-12">
     <div class="<?php echo !empty($this->innerDivClass) ? $this->innerDivClass : 'pesquisa-home'?>">
         <div class="formulario">
@@ -73,20 +76,20 @@
                             <label for="valor_min">Dormitórios</label>
                             <input id="dormitorios" type="hidden" value="" name="dormitorios" />
                             <div id="dorm_search" class="btn-group clearfix" data-toggle="buttons">
-                                <label class="btn btn-checkbox">
-                                    <input type="checkbox" autocomplete="off" data-qnt="1"><i>1</i>
+                                <label class="btn btn-checkbox <?= in_array(1, $dorms) ? 'active' : ''?>">
+                                    <input type="checkbox" autocomplete="off" data-qnt="1" <?= in_array(1, $dorms) ? 'checked' : ''?>><i>1</i>
                                 </label>
-                                <label class="btn btn-checkbox">
-                                    <input type="checkbox" autocomplete="off" data-qnt="2"><i>2</i>
+                                <label class="btn btn-checkbox <?= in_array(2, $dorms) ? 'active' : ''?>">
+                                    <input type="checkbox" autocomplete="off" data-qnt="2" <?= in_array(2, $dorms) ? 'checked' : ''?>><i>2</i>
                                 </label>
-                                <label class="btn btn-checkbox">
-                                    <input type="checkbox" autocomplete="off" data-qnt="3"><i>3</i>
+                                <label class="btn btn-checkbox <?= in_array(3, $dorms) ? 'active' : ''?>">
+                                    <input type="checkbox" autocomplete="off" data-qnt="3" <?= in_array(3, $dorms) ? 'checked' : ''?>><i>3</i>
                                 </label>
-                                <label class="btn btn-checkbox">
-                                    <input type="checkbox" autocomplete="off" data-qnt="4"><i>4</i>
+                                <label class="btn btn-checkbox <?= in_array(4, $dorms) ? 'active' : ''?>">
+                                    <input type="checkbox" autocomplete="off" data-qnt="4" <?= in_array(4, $dorms) ? 'checked' : ''?>><i>4</i>
                                 </label>
-                                <label class="btn btn-checkbox">
-                                    <input type="checkbox" autocomplete="off" data-qnt="5"><i>5+</i>
+                                <label class="btn btn-checkbox <?= in_array(5, $dorms) ? 'active' : ''?>">
+                                    <input type="checkbox" autocomplete="off" data-qnt="5" <?= in_array(5, $dorms) ? 'checked' : ''?>><i>5+</i>
                                 </label>
                             </div>
                         </div>
