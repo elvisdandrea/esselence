@@ -8,8 +8,8 @@
             <div class="menu">
                 <nav class="nav-main">
                     <ul>
-                        <li><a href="#">Lançamentos</a></li>
-                        <li><a href="#">Imóveis à venda</a></li>
+                        <li><a href="<?php echo $this->serverUrl().BASEDIR?>/imoveis/listagem?tipo=Empreendimento">Lançamentos</a></li>
+                        <li><a href="<?php echo $this->serverUrl().BASEDIR?>/imoveis/listagem?status=Venda">Imóveis à venda</a></li>
                         <li><a href="<?php echo $this->serverUrl().BASEDIR?>/fale-conosco">Fale conosco</a></li>
                     </ul>
                 </nav>
@@ -18,12 +18,11 @@
                         <a href="#">Quem somos</a>
                     </div>
                     <div>
-                        <a href="#">Anuncie seu imóvel</a>
+                        <a href="<?php echo $this->serverUrl().BASEDIR?>/fale-conosco">Anuncie seu imóvel</a>
                     </div>
                     <div>
                         <a href="#">Financiamento</a>
                     </div>
-                    <div><a href="<?php echo $this->serverUrl().BASEDIR?>/chat">Chat</a></div>
                 </div>
             </div>
             <div class="fone-header">
