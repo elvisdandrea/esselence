@@ -94,4 +94,15 @@ class VistaRest extends Vista {
 
     }
 
+    public function getDadosAgencias() {
+
+        $this->setVistaMethod('agencias', 'listar');
+        $this->addFieldParam('Codigo');
+        $this->addFieldParam('Nome');
+        $this->addFieldParam('E-mail');
+        $this->addFieldParam('Fone');
+
+        $this->execute();
+    }
+
 }
