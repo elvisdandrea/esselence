@@ -1,12 +1,12 @@
 <?php
 
 function isLocal() {
-    return !filter_var(filter_input(INPUT_SERVER,'SERVER_ADDR'), FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)
-    || (((ip2long(filter_input(INPUT_SERVER,'SERVER_ADDR')) & 0xff000000) == 0x7f000000) );
+    $srv = filter_input(INPUT_SERVER, 'SERVER_ADDR');
+    return strpos($srv, '192.168') !== false || strpos($srv, '10.') === 0 || $srv == 'localhost';
 }
 
 isLocal() ?
-    define('BASEDIR', '/esselence/public') : define('BASEDIR', '/esselence/public');
+    define('BASEDIR', '/esselence/public') : define('BASEDIR', '');
 
 
 // Define path to application directory
