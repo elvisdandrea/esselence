@@ -80,6 +80,8 @@ class ImoveisController extends Zend_Controller_Action{
             //TODO -- Criar tela de imovel não encontrado
         }
 
+        $form = new Application_Form_FaleConoscoForm();
+        $this->view->form = $form;
         $this->view->imovel = $dadosImovel;
     }
 }
