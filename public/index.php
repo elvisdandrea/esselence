@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Not sofisticated, just straight forward
+ *
+ * @return bool
+ */
 function isLocal() {
     $srv = filter_input(INPUT_SERVER, 'SERVER_ADDR');
-    return strpos($srv, '192.168') !== false || strpos($srv, '10.') === 0 || $srv == 'localhost';
+    return strpos($srv, '192.168') !== false || strpos($srv, '10.') === 0 || $srv == 'localhost' ||
+        $srv == '127.0.0.1' || $srv == '::1';
 }
 
 isLocal() ?
