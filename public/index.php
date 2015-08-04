@@ -6,7 +6,7 @@ function isLocal() {
 }
 
 isLocal() ?
-    define('BASEDIR', '/esselence/public') : define('BASEDIR', '/esselence/public');
+    define('BASEDIR', '/esselence/public') : define('BASEDIR', '');
 
 
 // Define path to application directory
