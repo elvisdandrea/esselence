@@ -56,7 +56,6 @@ class IndexController extends Zend_Controller_Action
         $vista->buscaImoveis($filtroWidget2);
         $this->view->widget2 = $vista->getResult();
 
-
     }
 
 }
