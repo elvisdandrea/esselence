@@ -5,8 +5,16 @@ class FaleConoscoController extends Zend_Controller_Action{
     public function indexAction(){
         if($this->_request->isPost()){
             try{
-                $tr = new Zend_Mail_Transport_Sendmail('eder.luiz.correa@gmail.com');
-                Zend_Mail::setDefaultTransport($tr);
+                $config = array('auth' => 'login',
+                    'username' => 'eder.luiz.correa@gmail.com',
+                    'password' => 'rqzqhxbq',
+                    'port' => '587',
+                    'ssl' => 'tls'
+                );
+
+                $transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
+
+                Zend_Mail::setDefaultTransport($transport);
 
                 $mail = new Zend_Mail();
 
