@@ -3,26 +3,38 @@
 class FaleConoscoController extends Zend_Controller_Action{
 
     public function indexAction(){
-        if($this->_request->isPost()){
+        $form = new Application_Form_FaleConoscoForm();
+        $this->view->form = $form;
+        $params = $this->_request->getParams();
+
+        if($this->_request->isPost() && $form->isValid($params)){
             try{
+                $vista = Services::get('vista_rest');
+                $vista->getAuthEmail();
+                $smtpData = $vista->getResult();
+
                 $config = array('auth' => 'login',
-                    'username' => 'eder.luiz.correa@gmail.com',
-                    'password' => 'rqzqhxbq',
-                    'port' => '587',
-                    'ssl' => 'tls'
+                    'username' => $smtpData['user'],
+                    'password' => $smtpData['pass'],
+                    'port' => $smtpData['port']
                 );
 
-                $transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
-
+                $transport = new Zend_Mail_Transport_Smtp($smtpData['smtp'], $config);
                 Zend_Mail::setDefaultTransport($transport);
+
+                $html = new Zend_View();
+                $html->setScriptPath(APPLICATION_PATH . '/views/scripts/fale-conosco/');
+
+                $html->data = $params;
+
+                $emailBody = $html->render('email-body.phtml');
 
                 $mail = new Zend_Mail();
 
-                $mail->setBodyText('PLACEHOLDER.');
+                $mail->setBodyHtml($emailBody);
                 $mail->setFrom('eder.luiz.correa@gmail.com', 'Placeholder');
                 $mail->addTo('eder.luiz.correa@gmail.com', 'Placeholder');
-
-                $mail->setSubject('Placeholder Subject');
+                $mail->setSubject("Contato pelo Site {$params['nome']}");
 
                 $mail->send();
 
