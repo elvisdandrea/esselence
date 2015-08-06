@@ -8,7 +8,7 @@
                         <div class="content-slider">
                             <h3><?= $banner['Empreendimento']; ?></h3>
                             <p>A partir de R$ <?= $banner['ValorVenda']; ?></p>
-                            <span href="<?= $this->serverURL() ?>" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
+                            <span href="<?php echo $this->serverUrl().BASEDIR?>/imoveis/detalhes/codigo/<?php echo $banner['Codigo']; ?>" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
                         </div>
                         <div class="shadow"></div>
                     </a>
