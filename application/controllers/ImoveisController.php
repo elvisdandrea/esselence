@@ -45,4 +45,25 @@ class ImoveisController extends Zend_Controller_Action{
         $this->view->quantidadeImoveis = $vista->getTotalItems();
     }
 
+    public function detalhesAction(){
+        $imoCodigo = $this->_request->getParam('codigo');
+
+        if(empty($imoCodigo)){
+            //TODO -- Criar tela de imovel não encontrado
+        }
+
+        $vista = Services::get('vista_rest');
+        $vista->getDadosImovel($imoCodigo);
+
+        $dadosImovel = $vista->getResult();
+
+        if(empty($dadosImovel)){
+            //TODO -- Criar tela de imovel não encontrado
+        }
+
+        $form = new Application_Form_FaleConoscoForm();
+        $this->view->form = $form;
+        $this->view->imovel = $dadosImovel;
+    }
+    
 }
