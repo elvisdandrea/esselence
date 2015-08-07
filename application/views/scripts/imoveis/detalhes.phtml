@@ -1,4 +1,5 @@
 <header class="head-imo">
+
     <div class="container">
         <div class="fl-left">
             <h2 class="head-imo-info"><?php echo $this->imovel['Categoria']?> <?php echo $this->imovel['Dormitorios']?> dormitórios, <?php echo $this->imovel['Bairro']?>, <?php echo $this->imovel['Cidade']?> <small><?php echo $this->imovel['Codigo']?></small></h2>
@@ -6,9 +7,7 @@
         <div class="fl-right">
             <div class="compartilhe">
                 Compartilhe:
-                <a href="#" title="Facebook" class="facebook"><span class="icon-facebook"></span></a>
-                <a href="#" title="Twitter" class="twitter"><span class="icon-twitter"></span></a>
-                <a href="#" title="Google Plus" class="google-plus"><span class="icon-google-plus"></span></a>
+                <a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo $this->serverUrl() . BASEDIR . '/imoveis/detalhes/codigo/' . $this->imovel['Codigo']?>&title=esselence','name','width=600,height=400')" href="#" data-title="Facebook" data-desc="test" data-image="test" class="facebook"><span class="icon-facebook"></span></a>
                 <a href="#" title="Enviar por e-mail" class="mail"><span class="icon-mail"></span></a>
             </div>
         </div>
