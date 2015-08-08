@@ -38,7 +38,9 @@ class ImoveisController extends Zend_Controller_Action{
 
         (empty($params['valor_min']) && empty($params['valor_max'])) || $filtros['ValorVenda'] = array($params['valor_min'], $params['valor_max']);
 
-        $vista->setPaginationParam(1, 9);
+        $page = empty($params['page']) ? 1 : $params['page'];
+
+        $vista->setPaginationParam($page, 9);
         $vista->buscaImoveis($filtros);
 
         $this->view->imoveis = $vista->getResult();

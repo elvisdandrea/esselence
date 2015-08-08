@@ -1,5 +1,5 @@
 <?php foreach($this->imoveis as $key => $value):?>
-    <?php if(!is_array($value)) continue;?>
+<?php if(!is_array($value)) continue;?>
     <div class="col-lg-4 col-md-6 col-sm-4">
         <div class="imovel-list">
             <a href="<?php echo $this->serverUrl().BASEDIR?>/imoveis/detalhes/codigo/<?php echo $value['Codigo']?>" title="<?php echo "{$value['Categoria']}, {$value['Bairro']}, {$value['Cidade']}"?>">
