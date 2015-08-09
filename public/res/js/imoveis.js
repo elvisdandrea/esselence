@@ -4,8 +4,12 @@ var paginationActive = true;
 $(window).scroll(function() {
     if(paginationActive) {
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            var url = '/esselence/public/imoveis/listagem?' + location.search.substr(1) + '&page=' + page;
+            if($('#ordem').val() != '')
+                url += '&order=' + $('#ordem').val();
+
             $.ajax({
-                url: '/esselence/public/imoveis/listagem?' + location.search.substr(1) + '&page=' + page,
+                url: url,
                 success: function (html) {
                     if(html == ''){
                         paginationActive = false;
@@ -16,5 +20,18 @@ $(window).scroll(function() {
                 }
             });
         }
+    }
+});
+
+$('#ordem').change(function() {
+    if ($(this).val() != '') {
+        $.ajax({
+            url: '/esselence/public/imoveis/listagem?' + location.search.substr(1) + '&order=' + $(this).val(),
+            success: function (html) {
+                paginationActive = true;
+                page = 2;
+                $('#lista-imoveis').html(html);
+            }
+        });
     }
 });

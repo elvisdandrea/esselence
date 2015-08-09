@@ -38,6 +38,13 @@ class ImoveisController extends Zend_Controller_Action{
 
         (empty($params['valor_min']) && empty($params['valor_max'])) || $filtros['ValorVenda'] = array($params['valor_min'], $params['valor_max']);
 
+        if(!empty($params['order'])){
+            if($params['order'] == 'MaiorValor')
+                $vista->addOrderParam('ValorVenda', 'desc');
+            else
+                $vista->addOrderParam($params['order'], 'asc');
+        }
+
         $page = empty($params['page']) ? 1 : $params['page'];
 
         $vista->setPaginationParam($page, 9);
