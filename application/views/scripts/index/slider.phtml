@@ -20,7 +20,10 @@
             $current = 0;
             foreach ($this->banners as $banner) : ?>
                 <a data-slide-index="<?= $current; ?>" href="">
-                    <span class="custom-nav-link"><?= $banner['Empreendimento']; ?></span>
+                    <span class="custom-nav-link">
+                        <?= $banner['Categoria'] .
+                        (intval($banner['Dormitorios']) > 0 ? ' ' . $banner['Dormitorios'] : '')  .
+                        '<br>' . $banner['Bairro'] . '/' . $banner['Cidade']; ?></span>
                     <span class="bar-progress"></span>
                 </a>
             <?php
