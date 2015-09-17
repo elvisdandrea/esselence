@@ -31,7 +31,7 @@ class IndexController extends Zend_Controller_Action
         $vista->reset();
 
         $filtroBanner = array(
-            'Categoria' => 'Empreendimento'
+            'SuperDestaqueWeb' => 'Sim'
         );
 
         $vista->buscaImoveis($filtroBanner);
