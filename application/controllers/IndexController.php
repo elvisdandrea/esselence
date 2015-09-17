@@ -45,21 +45,21 @@ class IndexController extends Zend_Controller_Action
         $vista->reset();
 
         $filtroWidget1 = array(
-            'Categoria'     => 'Apartamento',
-            'Dormitorios'   => array(1,2)
+            'EmDestaque'     => 'Sim',
         );
 
         $vista->buscaImoveis($filtroWidget1);
-        $this->view->widget1 = $vista->getResult();
+        $this->view->widget1      = $vista->getResult();
+        $this->view->widget1Title = 'Destaques';
 
-        $vista->reset();
-
-        $filtroWidget2 = array(
-            'Categoria'     => 'Casa'
-        );
-
-        $vista->buscaImoveis($filtroWidget2);
-        $this->view->widget2 = $vista->getResult();
+//        $vista->reset();
+//
+//        $filtroWidget2 = array(
+//            'Categoria'     => 'Casa'
+//        );
+//
+//        $vista->buscaImoveis($filtroWidget2);
+//        $this->view->widget2 = $vista->getResult();
 
     }
 
