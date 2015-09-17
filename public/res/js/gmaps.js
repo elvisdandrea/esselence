@@ -1,36 +1,20 @@
 function GMaps(){}
 
 GMaps.prototype = {
-    init : function(a, b, c, d){
-        var latlng = new google.maps.LatLng(b, c);
+    init : function(elementId, lat, lng, zoom) {
+        var latlng = new google.maps.LatLng(lat, lng);
         var myOptions = {
-            zoom: d,
+            zoom: zoom,
             center: latlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        GMaps.map = new google.maps.Map(document.getElementById(a), myOptions);
+        GMaps.map = new google.maps.Map(document.getElementById(elementId), myOptions);
     },
     
-    init_beta : function(a){
-        var myOptions = {
-            zoom: a.zoom,
-            center: new google.maps.LatLng(a.lat, a.lng),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        GMaps.map = new google.maps.Map(document.getElementById(a.id), myOptions);
-    },
-    
-    add_point : function(a, b, c, d, e)
+    add_point : function(lat, lng, contentString, contentTitle)
     {
-        var contentTitle = ''
-        var contentString = false;
         
-        if(c != undefined && d != undefined && e != undefined){
-            contentString = '<div class="infowindow_gmaps"><h2>' + c + '</h2><br/><p>' + d + '<br/>Telefone: ' + e + '</p></div>';
-            contentTitle = c + ' - ' + d;
-        }
-        
-        var latlng = new google.maps.LatLng(a, b);
+        var latlng = new google.maps.LatLng(lat, lng);
         var marker = new google.maps.Marker({
             position: latlng, 
             map: GMaps.map,           
@@ -78,8 +62,8 @@ GMaps.prototype = {
         
     },
     
-    add_circle : function(a, b){
-        var latlng = new google.maps.LatLng(a, b);
+    add_circle : function(lat, lng){
+        var latlng = new google.maps.LatLng(lat, lng);
         var circle = new google.maps.Circle({
             map: GMaps.map,
             radius: 800, // 800 metros 

@@ -54,6 +54,8 @@ class VistaRest extends Vista {
         $this->addFieldParam('AreaTotal');
         $this->addFieldParam('FotoDestaque');
         $this->addFieldParam('FotoDestaquePequena');
+        $this->addFieldParam('Latitude');
+        $this->addFieldParam('Longitude');
 
         if (isset($pagination['pagina']) && isset($pagination['quantidade'])) {
             $this->setPaginationParam($pagination['pagina'], $pagination['quantidade']);

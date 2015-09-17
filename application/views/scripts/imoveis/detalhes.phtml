@@ -2,7 +2,7 @@
 
     <div class="container">
         <div class="fl-left">
-            <h2 class="head-imo-info"><?php echo $this->imovel['Categoria']?> <?php echo $this->imovel['Dormitorios']?> dormitórios, <?php echo $this->imovel['Bairro']?>, <?php echo $this->imovel['Cidade']?> <small><?php echo $this->imovel['Codigo']?></small></h2>
+            <h2 class="head-imo-info"><?php echo $this->imovel['Categoria']?> <?php echo $this->imovel['Dormitorios']?> dormitórios, <?php echo $this->imovel['Bairro']?>, <?php echo $this->imovel['Cidade']?> <small>Código: <?php echo $this->imovel['Codigo']?></small></h2>
         </div>
         <div class="fl-right">
             <div class="compartilhe">
@@ -115,8 +115,7 @@
             </div>
         </div>
         <div class="mapa-imovel">
-            <div class="mapa-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12242.813604276287!2d-48.577312624384525!3d-27.58757863992954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbr!4v1438554658418" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe>
+            <div class="mapa-container" id="mapa-imovel">
             </div>
         </div>
     </div>
@@ -125,3 +124,7 @@
         <?php echo $this->render('/fale-conosco/contato-form.phtml')?>
     </div>
 </section>
+<script>
+    GMaps.mapLatitude  = '<?php echo $this->imovel['Latitude'];  ?>';
+    GMaps.mapLongitude = '<?php echo $this->imovel['Longitude']; ?>';
+</script>

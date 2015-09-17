@@ -55,6 +55,9 @@ class ImoveisController extends Zend_Controller_Action{
     }
 
     public function detalhesAction(){
+
+        $this->view->headScript()->appendFile($this->view->serverUrl().BASEDIR.'/res/js/detalhes.js');
+
         $imoCodigo = $this->_request->getParam('codigo');
 
         if(empty($imoCodigo)){
