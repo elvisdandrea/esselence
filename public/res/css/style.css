@@ -12,3 +12,10 @@ button{border:0;background:transparent;cursor:pointer;-webkit-appearance:none;ou
 .financiamento-box {
     padding-bottom: 2em;
 }
+
+.signature {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0px;
+    text-align: center;
+}
