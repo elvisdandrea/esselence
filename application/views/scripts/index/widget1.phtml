@@ -28,8 +28,10 @@
                                     <?php if (intval($widget1['Dormitorios']) > 0) : ?>
                                         <h4 class="destaque-caracteristicas"><?= $widget1['Dormitorios']; ?> dormitórios</h4>
                                     <?php endif; ?>
-                                    <span class="block destaque-preco">R$ <?= $widget1['ValorVenda']; ?></span>
-                                    <span class="block destaque-codigo"><?= $widget1['Codigo']; ?></span>
+                                    <?php if (intval($widget1['ValorVenda']) > 0) : ?>
+                                        <span class="block destaque-preco">R$ <?= number_format($widget1['ValorVenda'], 2, ',', '.'); ?></span>
+                                    <?php endif; ?>
+                                    <span class="block destaque-codigo">Código: <?= $widget1['Codigo']; ?></span>
                                 </div>
                                 <div class="shadow"></div>
                             </a>
@@ -50,8 +52,10 @@
                             <?php if (intval($last['Dormitorios']) > 0) : ?>
                                 <h4 class="destaque-caracteristicas"><?= $last['Dormitorios']; ?> dormitórios</h4>
                             <?php endif; ?>
-                            <span class="block destaque-preco">R$ <?= $last['ValorVenda']; ?></span>
-                            <span class="block destaque-codigo"><?= $last['Codigo']; ?></span>
+                            <?php if (intval($last['ValorVenda']) > 0) : ?>
+                                <span class="block destaque-preco">R$ <?= number_format($last['ValorVenda'], 2, ',', '.'); ?></span>
+                            <?php endif; ?>
+                            <span class="block destaque-codigo">Código: <?= $last['Codigo']; ?></span>
                         </div>
                         <div class="shadow"></div>
                     </a>

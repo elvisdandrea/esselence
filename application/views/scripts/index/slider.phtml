@@ -7,7 +7,9 @@
                         <img src="<?= $banner['FotoDestaque']; ?>" alt="<?= $banner['Codigo']; ?>"/>
                         <div class="content-slider">
                             <h3><?= $banner['Empreendimento']; ?></h3>
-                            <p>A partir de R$ <?= $banner['ValorVenda']; ?></p>
+                            <?php if (intval($banner['ValorVenda']) > 0) : ?>
+                                <p>A partir de R$ <?= number_format($banner['ValorVenda'], 2, ',', '.'); ?></p>
+                            <?php endif; ?>
                             <span href="<?php echo $this->serverUrl().BASEDIR?>/imoveis/detalhes/codigo/<?php echo $banner['Codigo']; ?>" class="btn-detalhes">VEJA DETALHES <i class="icon-arrow-left"></i></span>
                         </div>
                         <div class="shadow"></div>
