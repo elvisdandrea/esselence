@@ -8,7 +8,9 @@
                 <label><?php echo $value['Categoria']?></label>
                 <span class="local"><?php echo $value['Bairro']?>, <?php echo $value['Cidade']?></span>
                 <span class="caracteristicas"><?php echo $value['Dormitorios']?> dormitórios • <?php echo $value['AreaTotal']?>&sup2;</span>
-                <span class="preco">R$ <?php echo number_format($value['ValorVenda'], 2, ',','.')?></span>
+                <?php if (intval($value['ValorVenda']) > 0) : ?>
+                        <span class="preco">R$ <?php echo number_format($value['ValorVenda'], 2, ',','.')?></span>
+                <?php endif;?>
             </a>
         </div>
     </div>

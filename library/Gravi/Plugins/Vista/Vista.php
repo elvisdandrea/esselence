@@ -353,7 +353,10 @@ class Vista {
         $this->result = $this->restClient->getResponse();
 
         foreach (array_keys($this->pagination) as $pagParam)
-            if (isset($this->result[$pagParam])) $this->pagination[$pagParam] = intval($this->result[$pagParam]);
+            if (isset($this->result[$pagParam])) {
+                $this->pagination[$pagParam] = intval($this->result[$pagParam]);
+                unset($this->result[$pagParam]);
+            }
 
     }
 

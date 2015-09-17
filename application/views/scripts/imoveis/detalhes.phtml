@@ -53,26 +53,38 @@
                             <div class="col-xs-6"><p><strong>Cidade</strong></p></div>
                             <div class="col-xs-6"><p><?php echo $this->imovel['Cidade']?></p></div>
 
-                            <div class="col-xs-6"><p><strong>Dormitórios</strong></p></div>
-                            <div class="col-xs-6"><p><?php echo $this->imovel['Dormitorios']?></p></div>
+                            <?php if (intval($this->imovel['Dormitorios']) > 0) : ?>
+                                <div class="col-xs-6"><p><strong>Dormitórios</strong></p></div>
+                                <div class="col-xs-6"><p><?php echo $this->imovel['Dormitorios']?></p></div>
+                            <?php endif; ?>
 
-                            <div class="col-xs-6"><p><strong>Suítes</strong></p></div>
-                            <div class="col-xs-6"><p><?php echo $this->imovel['Suites']?></p></div>
+                            <?php if (intval($this->imovel['Suites']) > 0) : ?>
+                                <div class="col-xs-6"><p><strong>Suítes</strong></p></div>
+                                <div class="col-xs-6"><p><?php echo $this->imovel['Suites']?></p></div>
+                            <?php endif; ?>
 
-                            <div class="col-xs-6"><p><strong>Vagas</strong></p></div>
-                            <div class="col-xs-6"><p><?php echo $this->imovel['Vagas']?></p></div>
+                            <?php if (intval($this->imovel['Vagas']) > 0) : ?>
+                                <div class="col-xs-6"><p><strong>Vagas</strong></p></div>
+                                <div class="col-xs-6"><p><?php echo $this->imovel['Vagas']?></p></div>
+                            <?php endif; ?>
 
-                            <div class="col-xs-6"><p><strong>Área privativa</strong></p></div>
-                            <div class="col-xs-6"><p><?php echo $this->imovel['AreaPrivativa']?> m²</p></div>
+                            <?php if (intval($this->imovel['AreaPrivativa']) > 0) : ?>
+                                <div class="col-xs-6"><p><strong>Área privativa</strong></p></div>
+                                <div class="col-xs-6"><p><?php echo $this->imovel['AreaPrivativa']?> m²</p></div>
+                            <?php endif; ?>
 
-                            <div class="col-xs-6"><p><strong>Área total</strong></p></div>
-                            <div class="col-xs-6"><p><?php echo $this->imovel['AreaTotal']?> m²</p></div>
+                            <?php if (intval($this->imovel['AreaTotal']) > 0) : ?>
+                                <div class="col-xs-6"><p><strong>Área total</strong></p></div>
+                                <div class="col-xs-6"><p><?php echo $this->imovel['AreaTotal']?> m²</p></div>
+                            <?php endif; ?>
                         </div>
                     </div>
-                    <div class="info-imovel-preco">
-                        <small>VALOR DO IMÓVEL</small>
-                        <h3>R$ <?php echo number_format($this->imovel['ValorVenda'], 2, ',','.')?></h3>
-                    </div>
+                    <?php if (intval($this->imovel['ValorVenda']) > 0) : ?>
+                        <div class="info-imovel-preco">
+                            <small>VALOR DO IMÓVEL</small>
+                            <h3>R$ <?php echo number_format($this->imovel['ValorVenda'], 2, ',','.')?></h3>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

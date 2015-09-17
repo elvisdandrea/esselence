@@ -34,7 +34,12 @@ class IndexController extends Zend_Controller_Action
             'SuperDestaqueWeb' => 'Sim'
         );
 
-        $vista->buscaImoveis($filtroBanner);
+        $pagination = array(
+            'pagina'     => 1,
+            'quantidade' => 5
+        );
+
+        $vista->buscaImoveis($filtroBanner, $pagination);
         $this->view->banners = $vista->getResult();
 
         $vista->reset();

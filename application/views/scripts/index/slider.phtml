@@ -16,12 +16,16 @@
             <?php endforeach; ?>
         </div>
         <div class="custom-nav-slide">
-            <?php foreach ($this->banners as $banner) : ?>
-                <a data-slide-index="0" href="">
+            <?php
+            $current = 0;
+            foreach ($this->banners as $banner) : ?>
+                <a data-slide-index="<?= $current; ?>" href="">
                     <span class="custom-nav-link"><?= $banner['Empreendimento']; ?></span>
                     <span class="bar-progress"></span>
                 </a>
-            <?php endforeach; ?>
+            <?php
+            $current++;
+            endforeach; ?>
         </div>
     </div>
 </div>

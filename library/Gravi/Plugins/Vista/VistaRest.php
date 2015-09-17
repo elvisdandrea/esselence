@@ -38,7 +38,7 @@ class VistaRest extends Vista {
 
     }
 
-    public function buscaImoveis(array $filtros) {
+    public function buscaImoveis(array $filtros, array $pagination = array()) {
 
         $this->setVistaMethod('imoveis', 'listar');
 
@@ -54,6 +54,10 @@ class VistaRest extends Vista {
         $this->addFieldParam('AreaTotal');
         $this->addFieldParam('FotoDestaque');
         $this->addFieldParam('FotoDestaquePequena');
+
+        if (isset($pagination['pagina']) && isset($pagination['quantidade'])) {
+            $this->setPaginationParam($pagination['pagina'], $pagination['quantidade']);
+        }
 
         empty($filtros) || $this->addFilterParam($filtros);
 
