@@ -3,7 +3,7 @@
         <div class="slide-in">
             <?php foreach ($this->banners as $banner) : ?>
                 <div class="slide">
-                    <a href="#">
+                    <a href="<?php echo $this->serverUrl().BASEDIR?>/imoveis/detalhes/codigo/<?php echo $banner['Codigo']; ?>">
                         <img src="<?= $banner['FotoDestaque']; ?>" alt="<?= $banner['Codigo']; ?>"/>
                         <div class="content-slider">
                             <h3><?= $banner['Empreendimento']; ?></h3>
