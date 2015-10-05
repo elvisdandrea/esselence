@@ -32,7 +32,7 @@ class FaleConoscoController extends Zend_Controller_Action{
                 $mail = new Zend_Mail();
 
                 $mail->setBodyHtml($emailBody);
-                $mail->setFrom('eder.luiz.correa@gmail.com', $params['nome']);
+                $mail->setFrom('atendimento@esselence.com.br', $params['nome']);
                 $mail->addTo('atendimento@esselence.com.br', 'Esselence');
                 $mail->setSubject("Contato pelo Site {$params['nome']}");
 
